@@ -1,0 +1,74 @@
+# .github/workflows/ci.yml
+# Yeh file GitHub Actions ko batati hai ki workflow kaise chalana hai
+
+# Workflow ka naam - GitHub Actions tab mein yahi dikhega
+name: CI Pipeline
+
+# 'on' section batata hai ki ye workflow KAB trigger hoga
+on:
+  # Jab main branch pe code push ho
+  push:
+    branches: [ main ]
+  
+  # Jab main branch ke liye Pull Request khule ya update ho
+  pull_request:
+    branches: [ main ]
+  
+  # Manual trigger - Actions tab se manually bhi run kar sakte ho
+  workflow_dispatch:
+
+# 'jobs' section mein actual kaam define karte hain
+jobs:
+  # 'build' ek job ka naam hai (aap kuch bhi de sakte ho)
+  build:
+    # 'runs-on' batata hai ki ye job kis type ke machine pe chalegi
+    # ubuntu-latest = GitHub ka Linux runner (free)
+    runs-on: ubuntu-latest
+    
+    # 'steps' ek list hai - actual commands jo run honge
+    steps:
+      # Step 1: Code checkout
+      # 'uses' matlab pehle se bana hua action use kar rahe hain
+      # actions/checkout@v4 = GitHub ka official action jo repo ka code download karta hai
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+      
+      # Step 2: Simple command run karna
+      # 'run' matlab shell command jo runner pe execute hogi
+      - name: 📝 Show file list
+        run: |
+          echo "Current directory files:"
+          ls -la
+          echo ""
+          echo "app.html content:"
+          cat app.html || echo "app.html not found"
+      
+      # Step 3: HTML file validate karna
+      # Ye check karta hai ki HTML file sahi format mein hai ya nahi
+      - name: 🔍 Validate HTML
+        run: |
+          echo "Checking if app.html exists..."
+          if [ -f "app.html" ]; then
+            echo "✅ app.html found!"
+            echo "File size: $(wc -c < app.html) bytes"
+            echo "Line count: $(wc -l < app.html) lines"
+          else
+            echo "❌ app.html NOT found!"
+            exit 1
+          fi
+      
+      # Step 4: Build step (dummy build - actual project mein yahan build hota hai)
+      - name: 🏗️ Build project
+        run: |
+          echo "Building project..."
+          echo "Build completed successfully!"
+          echo "Build time: $(date)"
+      
+      # Step 5: Upload build artifacts (optional - agar koi output file ho)
+      # GitHub Actions artifacts ko save karta hai jo job ke baad bhi accessible rahe
+      - name: 📦 Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-app-files
+          path: .
+          # 'path: .' matlab current directory ki sab files upload karo
