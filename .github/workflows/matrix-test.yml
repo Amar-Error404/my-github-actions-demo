@@ -5,9 +5,10 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os: [ubuntu-latest, windows-latest]
         node-version: [16, 18, 20]
     steps:
       - uses: actions/checkout@v4
@@ -15,4 +16,4 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - run: echo "Testing with Node.js ${{ matrix.node-version }}"
+      - run: echo "Testing with Node.js ${{ matrix.node-version }} on ${{ matrix.os }}"
