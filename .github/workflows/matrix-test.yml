@@ -12,6 +12,22 @@ jobs:
         node-version: [16, 18, 20]
     steps:
       - uses: actions/checkout@v4
+      
+      # Debug step: List files to confirm package-lock.json exists
+      - name: 📂 List files
+        run: |
+          echo "Root directory files:"
+          ls -la
+          echo ""
+          echo "Checking for package-lock.json..."
+          if [ -f "package-lock.json" ]; then
+            echo "✅ package-lock.json found!"
+            echo "First 5 lines:"
+            head -5 package-lock.json
+          else
+            echo "❌ package-lock.json NOT found!"
+          fi
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
