@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Secret Demo</title>
 </head>
 <body>
-    <h1>this is a github action demo</h1>
+    <h1>Secret Injection Demo</h1>
+    <p>API Key: <span id="api-key">__DEMO_SECRET__</span></p>
+    <script>
+        console.log("Secret value: __DEMO_SECRET__");
+    </script>
 </body>
 </html>
