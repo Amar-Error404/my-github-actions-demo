@@ -16,4 +16,5 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - run: echo "Testing with Node.js ${{ matrix.node-version }} on ${{ matrix.os }}"
+      - run: npm ci
+      - run: npm test
