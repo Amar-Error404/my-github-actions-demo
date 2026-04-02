@@ -8,3 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hello from my first job!"
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'this is the second job'
+      - run: echo 'and second job is created by amar'
+      
