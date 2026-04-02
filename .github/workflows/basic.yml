@@ -17,3 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo 'this is third job'
+  forth-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'hi this is forth job'
