@@ -13,4 +13,7 @@ jobs:
     steps:
       - run: echo 'this is the second job'
       - run: echo 'and second job is created by amar'
-      
+  third-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'this is third job'
