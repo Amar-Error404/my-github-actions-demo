@@ -17,6 +17,12 @@ jobs:
           echo 'hi this is multiline 3'
           echo 'hi this is multiline 4'
           echo 'hi this is multiline 5'
+      - name: upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-app
+          path: .
+
   third:
     runs-on: ubuntu-latest
     steps:
