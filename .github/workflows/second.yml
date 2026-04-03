@@ -1,0 +1,26 @@
+name: My Second Workflow
+on:
+  workflow_dispatch:
+jobs:
+  first:
+    runs-on: ubuntu-latest    
+    steps:
+      - run: echo 'hi this is my first job'
+  second:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo 'hi this is multiline 1'
+          echo 'hi this is multiline 2'    
+          echo 'hi this is multiline 3'
+          echo 'hi this is multiline 4'
+          echo 'hi this is multiline 5'
+  third:
+    runs-on: ubuntu-latest
+    steps:
+      - run: >
+          echo 'hi this is in combine text 1'
+          echo 'hi this is in combine text 2'
+          echo 'hi this is in combine text 3'
+          echo 'hi this is in combine text 4'
+          echo 'hi this is in combine text 5'
