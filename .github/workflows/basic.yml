@@ -12,7 +12,7 @@ jobs:
       - run: echo "Hello from my first job!"
   second-job:
     runs-on: ubuntu-latest
-    steps:
+    steps:      
       - run: echo 'this is the second job'
       - run: echo 'and second job is created by amar'
   third-job:
@@ -27,3 +27,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo 'this is fifth job'
+  sixth-job:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo 'this is firs line'
+          echo 'this is second line'
+          echo 'this is third line'
+          echo 'this is forth line'
+          echo 'this is fifth line'
+          ls -la
