@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: quality-check
     environment:
-      name: Production
+      name: Production-deploymen
       url: https://my-awesome-app.com
     steps:
       - name: Live Deployment
