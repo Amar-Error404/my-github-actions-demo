@@ -20,7 +20,7 @@ jobs:
     needs: job1_build
     steps:
       - name: Scan Vulnerabilities
-        run: 'build is completed now i will test the security scan'
+        run: echo 'build is completed now i will test the security scan'
   job4_deploy:
     runs-on: ubuntu-latest
     needs: [ job2_UnitTest, job3_SecurityScan]
