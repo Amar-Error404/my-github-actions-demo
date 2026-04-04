@@ -1,0 +1,24 @@
+name: SAFE DEPLOYMENT WORKFLOW
+on:
+  workflow_dispatch:
+jobs:
+  quality-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Code
+        uses: actions/checkout@v4
+      - name: Checking HTML Quality
+        run: |
+          echo: 'Scanning app.html'
+          echo: 'Quality check passed'
+  deploy-to-production:
+    runs-on: ubuntu-latest
+    needs: quality-check
+    environment:
+      name: Production
+      url: https://my-awesome-app.com
+    steps:
+      - name: Live Deployment
+        run: |
+          echo 'Deploying app.html to the live server'
+          echo 'Deployment successful'    
