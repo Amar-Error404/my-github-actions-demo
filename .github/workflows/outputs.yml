@@ -9,7 +9,7 @@ jobs:
 
     steps:
       - id: step1
-        run: echo 'v_number' >> $GITHUB_OUTPUT
+        run: echo 'v_number=v2.5.0' >> $GITHUB_OUTPUT
 
   job2_Use:
     runs-on: ubuntu-latest
