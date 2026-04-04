@@ -9,13 +9,13 @@ jobs:
         uses: actions/checkout@v4
       - name: Checking HTML Quality
         run: |
-          echo: 'Scanning app.html'
-          echo: 'Quality check passed'
+          echo 'Scanning app.html'
+          echo 'Quality check passed'
   deploy-to-production:
     runs-on: ubuntu-latest
     needs: quality-check
     environment:
-      name: Production-deploymen
+      name: production-deployment
       url: https://my-awesome-app.com
     steps:
       - name: Live Deployment
