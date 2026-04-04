@@ -1,6 +1,6 @@
 name: HTML QUALITY CHECK
 on:
-  workflows_dispatch:
+  workflow_dispatch:
 jobs:
   lint-html:
     runs-on: ubuntu-latest
