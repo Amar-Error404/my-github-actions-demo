@@ -1,0 +1,20 @@
+name: Shared Data Pipeline
+on:
+  workflow_dispatch:
+jobs:
+  job1_Generate:
+    runs-on: ubuntu-latest
+    outputs:
+      app_version: ${{ steps.step1.outputs.v_number}}
+
+    steps:
+      - id: step1
+        run: echo 'v_number' >> $GITHUB_OUTPUT
+
+  job2_Use:
+    runs-on: ubuntu-latest
+    needs: job1_Generate
+    steps:
+      - name: Using version from job 1
+        run: echo 'job1 given me the version ${{needs.job1_Generate.outputs.app_version}}'
+
