@@ -1,0 +1,11 @@
+name: SAFE DEPLOYMENT2 WORKFLOW
+on:
+  workflow_dispatch:
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check app.html file
+        run: |
+          echo 'checking html file'
+          cat app.html
