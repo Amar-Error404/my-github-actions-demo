@@ -19,6 +19,13 @@ jobs:
         run: |
           echo 'Scanning app.html'
           echo 'Quality check passed'
+  quality-check2:
+    runs-on: ubuntu-check
+    steps:
+      - name: check i code exists 2
+        run: |
+          echo 'finding app.html'
+          cat app.html
   deploy-to-production:
     runs-on: ubuntu-latest
     needs: quality-check
