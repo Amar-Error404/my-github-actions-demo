@@ -1,0 +1,11 @@
+name: MY ARTIFACT DEPLOYMENT
+on:
+  workflow_dispatch:
+
+jobs:
+  normal_shell:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run script
+        run: |
+          echo 'hi this is a normal script message' echo 'and this is second'
