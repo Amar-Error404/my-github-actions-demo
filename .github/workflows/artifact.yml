@@ -8,4 +8,5 @@ jobs:
     steps:
       - name: Run script
         run: |
-          echo 'hi this is a normal script message' echo 'and this is second'
+          echo 'hi this is a normal script message and this is second kjkjkjkjkjkjkjk djkdjkjdsd
+          dsldsldlsd uieurieururuehfjhfjd fdfkdjkfdkjkd dfdhjhjd dfhdjfhjdhfjdhf dfjhdjfhjdhjfh'
